@@ -1,3 +1,16 @@
+export const names = [
+  "Adidas",
+  "Nike",
+  "Crocs",
+  "Skechers",
+  "New Balance",
+  "Under Armour",
+  "Allbirds ",
+  "PUMA ",
+  "Reebok",
+  "Fila",
+]
+
 export const footerLinks = [
     {
       title: "About",
