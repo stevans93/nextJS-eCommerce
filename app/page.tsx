@@ -1,7 +1,10 @@
-import { CustomFilter, Hero, SearchBar } from "@/components";
+import { CustomFilter, Hero, SearchBar, ShoeCard } from "@/components";
+import { fetchShoes } from "@/utils";
 import Image from "next/image";
 
-export default function Home() {
+export default async function Home() {
+  const allShoes = await fetchShoes();
+  const isDataEmpty = !Array.isArray(allShoes) || allShoes.length < 1 || !allShoes;
   return (
     <main className="overflow-hidden">
       <Hero />
@@ -19,6 +22,22 @@ export default function Home() {
             <CustomFilter title="price"/>
           </div>
         </div>
+
+        {!isDataEmpty ? (
+          <section>
+            <div className="home__shoes-wrapper">
+              {allShoes?.map((shoe) => (
+                <ShoeCard shoe={shoe} />
+              ))}
+            </div>
+          </section>
+        ) : (
+          <div className="home__error-container">
+            <h2 className="text-black text-xl font-bold">Oops, no results</h2>
+            <p>{allShoes?.message}</p>
+          </div>
+        )}
+
       </div>
     </main>
   );
