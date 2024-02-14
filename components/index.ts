@@ -6,6 +6,7 @@ import SearchBar from './SearchBar';
 import CustomFilter from './CustomFilter';
 import SearchBarName from './SearchBarName';
 import ShoeCard from './ShoeCard';
+import ShoeDetails from './ShoeDetails';
 
 export {
     Hero,
@@ -15,5 +16,6 @@ export {
     SearchBar,
     CustomFilter,
     SearchBarName,
-    ShoeCard
+    ShoeCard,
+    ShoeDetails
 }
