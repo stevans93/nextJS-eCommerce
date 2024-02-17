@@ -1,9 +1,9 @@
-import { CustomFilter, Hero, SearchBar, ShoeCard } from "@/components";
+import { Hero, SearchBar, ShoeCard, ShowMore } from "@/components";
 import { fetchShoes } from "@/utils";
 import Image from "next/image";
 
-export default async function Home() {
-  const allShoes = await fetchShoes();
+export default async function Home({ searchParams }) {
+  const allShoes = await fetchShoes({ name: searchParams.name || ''});
   const isDataEmpty = !Array.isArray(allShoes) || allShoes.length < 1 || !allShoes;
   return (
     <main className="overflow-hidden">
@@ -16,11 +16,6 @@ export default async function Home() {
 
         <div className="home__filters">
           <SearchBar />
-
-          <div className="home__filter-container">
-            <CustomFilter title="size"/>
-            <CustomFilter title="price"/>
-          </div>
         </div>
 
         {!isDataEmpty ? (
@@ -30,6 +25,8 @@ export default async function Home() {
                 <ShoeCard shoe={shoe} />
               ))}
             </div>
+
+            <ShowMore pageNumber={(searchParams.limit || 5) / 8} isNext={(searchParams.limt || 10) > allShoes.length}/>
           </section>
         ) : (
           <div className="home__error-container">

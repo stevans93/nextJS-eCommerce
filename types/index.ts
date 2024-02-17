@@ -26,3 +26,12 @@ export interface ShoeProps {
         count: number
     }
 }
+
+export interface FilterProps {
+    name: string
+}
+
+export interface ShowMoreProps {
+    pageNumber: number,
+    isNext: boolean
+}

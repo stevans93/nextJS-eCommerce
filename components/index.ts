@@ -3,10 +3,10 @@ import CustomButton from './CustomButton';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import SearchBar from './SearchBar';
-import CustomFilter from './CustomFilter';
 import SearchBarName from './SearchBarName';
 import ShoeCard from './ShoeCard';
 import ShoeDetails from './ShoeDetails';
+import ShowMore from './ShowMore';
 
 export {
     Hero,
@@ -14,8 +14,8 @@ export {
     Navbar,
     Footer,
     SearchBar,
-    CustomFilter,
     SearchBarName,
     ShoeCard,
-    ShoeDetails
+    ShoeDetails,
+    ShowMore
 }
